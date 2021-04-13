@@ -1,0 +1,58 @@
+<% layout("./layouts/boilerplate")%>
+
+<div>
+	<a href="/recipes">Go to all recipes</a>
+</div>
+<h1 class="new-title text-center">Create a new Recipe</h1>
+<div class="col-6 offset-3">
+	<form class="needs-validation" action="/recipes/<%=recipe.id%>/?_method=PUT" method="POST" novalidate>
+		<div class="mb-3">
+			<label class="form-label" for="name">Recipe Name</label>
+			<input value="<%= recipe.name %>" class="form-control" type="text" id="name" name="recipe[name]" required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="description">Recipe Description</label>
+			<input value="<%= recipe.description %>" class="form-control" type="text" id="description" name="recipe[description]" required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="diet">Diet</label>
+			<select class="form-control" name="recipe[diet]" id="diet">
+				<option value=" ">Select one</option>
+				<option value="Vegetarian Friendly">Vegetarian Friendly</option>
+				<option value="Keto Friendly">Keto Friendly</option>
+				<option value="Paleo Friendly">Paleo Friendly</option>
+				<option value="Vegan Friendly">Vegan Friendly</option>
+				<option value="Gluten Free">Gluten Free</option>
+			</select>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="igredients">Recipe Igredients</label>
+			<input value="<%= recipe.igredients %>" class="form-control" type="text" id="igredients" name="recipe[igredients]" required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="steps">Recipe Steps</label>
+			<input value="<%= recipe.steps %>" class="form-control" type="text" id="steps" name="recipe[steps]" required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="image">Choose Image</label>
+			<input value="<%= recipe.image %>" class="form-control" type="text" id="image" name="recipe[image]" required>
+		</div>
+		<button>Submit</button>
+	</form>
+</div>
+
+
+<!-- <% layout("./layouts/boilerplate")%>
+    <h1>Update <%= recipe.name %> </h1>
+    <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+        <div>
+            <label for="name">Recipe Name</label>
+            <input type="text" id="name" name="recipe[name]" value="<%= recipe.name %>"> 
+        </div>
+        <div>
+            <label for="description">Recipe Description</label>
+            <input type="text" id="description" name="recipe[description]" value="<%= recipe.description %>">
+        </div>
+        <button>Submit</button>
+    </form>
+    <a href="/recipes/<%= recipe.id%>">Go back to <%= recipe.name %></a> -->

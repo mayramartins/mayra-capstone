@@ -1,0 +1,51 @@
+.homepage-image {
+  min-width: 100%;
+  max-height: 50%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.index-title {
+  background-color: #93c5fd;
+  text-align: center;
+  color: #ef4444;
+  margin: 50px 5px;
+  padding: 10px;
+}
+
+.index-recipes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.index-recipes li {
+  width: 25%;
+}
+
+/* --------Design in Class-------- */
+/* 
+.login-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.login-form {
+  text-align: center;
+  margin: 24px;
+  font-size: 40px;
+}
+
+.login-form button {
+  display: inline-block;
+  width: 100px;
+  background-color: green;
+  padding: 12px 24px;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+/.login-form label {
+  font-size: 20px;
+  color: ;
+} */

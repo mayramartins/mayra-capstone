@@ -1,0 +1,41 @@
+<% layout("./layouts/boilerplate")%>
+
+<div>
+	<a href="/recipes">Go to all recipes</a>
+</div>
+<h1 class="new-title text-center">Create a new Recipe</h1>
+<div class="col-6 offset-3">
+	<form class="needs-validation" action="/recipes" method="POST" novalidate>
+		<div class="mb-3">
+			<label class="form-label" for="name">Recipe Name</label>
+			<input class="form-control" type="text" id="name" name="recipe[name]"required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="description">Recipe Description</label>
+			<input class="form-control" type="text" id="description" name="recipe[description]" required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="diet">Diet</label>
+			<select class="form-control" name="recipe[diet]" id="diet">
+				<option value=" ">Select one</option>
+				<option value="Vegetarian Friendly">Vegetarian Friendly</option>
+				<option value="Keto Friendly">Keto Friendly</option>
+				<option value="Paleo Friendly">Paleo Friendly</option>
+				<option value="Vegan Friendly">Vegan Friendly</option>
+			</select>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="igredients">Recipe Igredients</label>
+			<input class="form-control" type="text" id="igredients" name="recipe[igredients]" required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="steps">Recipe Steps</label>
+			<input class="form-control" type="text" id="steps" name="recipe[steps]" required>
+		</div>
+		<div class="mb-3">
+			<label class="form-label" for="image">Choose Image</label>
+			<input class="form-control" type="text" id="image" name="recipe[image]" required>
+		</div>
+		<button>Submit</button>
+	</form>
+</div>

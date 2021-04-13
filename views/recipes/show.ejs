@@ -1,0 +1,66 @@
+<% layout("./layouts/boilerplate")%>
+
+<link rel="stylesheet" href="/stars.css">
+
+<!-- SHOW DETAILS --> 
+
+<img style="width: 300px" src="<%= recipe.image %>" alt="">
+<h1><%= recipe.name %></h1>
+<p>Submitted By: <%= recipe.submittedBy.username  %> </p>
+<p><%= recipe.price %></p>
+<p><%= recipe.location %></p>
+<h2><%= recipe.description %></h2>
+
+<% if(user && recipe.submittedBy.equals(user) ) { %>
+<div>
+    <a href="/recipes/<%=recipe.id%>/edit">Edit <%= recipe.name %> </a>
+</div>
+<form action="/recipes/<%=recipe.id%>/delete?_method=DELETE" method="POST">
+   
+    <button>Delete Recipe</button>
+
+</form>
+<% } %>
+
+
+<!-- REVIEW FORM-->
+<% if(user) { %>
+<h2>Leave a Review</h2>
+<form class="needs-validation" action="/recipes/<%=recipe.id%>/reviews" method="POST" novalidate>
+    <div>
+        <label class="form-label" for="rating">Rating</label>
+        <input class="form-range" name="review[rating]" type="range" min="0" max="5" step="1" required>
+    </div>
+    <div>
+        <label class="form-label" for="body">Review</label>
+        <textarea class="form-control" name="review[body]" id="body" cols="30" rows="5" required></textarea>
+    </div>
+    <button>Submit</button>
+</form>
+<% } %>
+
+
+
+<div>
+    <h3>Reviews</h3>
+    <% for (let reviews of recipe.reviews) {%>
+    <div>
+        <!-- <p>Rating: <%=reviews.rating%></p> -->
+        <link rel="stylesheet" href="/stars.css">
+        <p>Author: <%= reviews.author.username %></p>
+        <!-- <p>Reviews: <%=reviews.body%></p> -->
+        <p class="starability-result" data-rating="<%=reviews.rating%>">
+            Rated: <%=reviews.rating%> stars
+        </p>
+
+        <% if(user && reviews.author.equals(user) ) { %>
+    
+        <form action="/recipes/<%=recipe.id%>/reviews/<%=reviews.id%>?_method=delete" method="POST">
+            <button>Delete</button>
+        </form>
+
+        <% } %>
+        
+    </div>
+    <%}%>
+</div>
